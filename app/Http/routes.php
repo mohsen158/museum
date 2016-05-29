@@ -33,6 +33,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::delete('/task/{task}', 'TaskController@destroy');
     Route::get('/addpaint','publicct@addpaintpage');
     Route::post('/addpaint','publicct@addpaint');
+    Route::get('/addexhibition','publicct@addexhibitionpage');
+    Route::post('/addexhibition','publicct@addexhibition');
 
     Route::auth();
 
