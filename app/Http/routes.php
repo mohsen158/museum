@@ -38,7 +38,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/exhibitions','publicct@exhibitions');
     Route::post('exhibitionupdatepage/{exhibition}','publicct@exhibitionupdatepage');
     Route::post('exhibitionupdate/{exhibition}','publicct@exhibitionupdate');
+    Route::delete('/exhibitiondel/{exhibition}', 'publicct@exhibitiondel');
 
+    Route::get('/paints','publicct@paints');
+    Route::get('/paintupdate/{paint}','publicct@paintupdatepage');///
+    Route::post('/paintupdate/{paint}','publicct@paintupdate');//
+    Route::delete('/paintdel/{paint}', 'publicct@paintdel');
 
     Route::auth();
 

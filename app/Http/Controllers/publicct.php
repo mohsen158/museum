@@ -20,7 +20,7 @@ class publicct extends Controller
         $p=new Paint;
         $p->style=$request->name;
         $p->save();
-        return redirect('/addpaint');
+        return redirect('/paints');
     }
     public function addexhibition(Request $request)
     {
@@ -28,7 +28,7 @@ class publicct extends Controller
         $p->name=$request->name;
         $p->time=$request->time;
         $p->save();
-        return redirect('/addexhibition');
+        return redirect('/exhibitions');
     }
     public function addexhibitionpage()
     {
@@ -52,5 +52,32 @@ return view('exhibitions',['ex' => $ex]);
         $exhibition->save();
         return redirect('/exhibitions');
         //return view('updateexhibitionpage',['ex'=>$exhibition]);
+    }
+    public function exhibitiondel(Exhibition $exhibition)
+    {
+        $exhibition->delete();
+        return redirect('/exhibitions');
+    }
+    public function paints()
+    {
+        $p = Paint::all();
+        return view ('paints',['paints'=>$p]);
+    }
+
+    public  function paintupdatepage(Paint $paint)
+    {
+return view ('paintupdatepage',['paint'=>$paint]);
+    }
+    public function paintupdate(Request $request, Paint $paint)
+    {
+        $paint->style=$request->name;
+        $paint->save();
+        return redirect ('/paints');
+
+    }
+    public function paintdel(Paint $paint)
+    {
+        $paint->delete();
+        return redirect('/paints');
     }
 }
