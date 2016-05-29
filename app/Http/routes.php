@@ -35,6 +35,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/addpaint','publicct@addpaint');
     Route::get('/addexhibition','publicct@addexhibitionpage');
     Route::post('/addexhibition','publicct@addexhibition');
+    Route::get('/exhibitions','publicct@exhibitions');
+    Route::post('exhibitionupdatepage/{exhibition}','publicct@exhibitionupdatepage');
+    Route::post('exhibitionupdate/{exhibition}','publicct@exhibitionupdate');
+
 
     Route::auth();
 
