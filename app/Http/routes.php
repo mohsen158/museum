@@ -37,14 +37,30 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/addexhibition','publicct@addexhibition');
     Route::get('/exhibitions','publicct@exhibitions');
     Route::post('exhibitionupdatepage/{exhibition}','publicct@exhibitionupdatepage');
+
     Route::post('exhibitionupdate/{exhibition}','publicct@exhibitionupdate');
     Route::delete('/exhibitiondel/{exhibition}', 'publicct@exhibitiondel');
+
+    //Amir
+    Route::get('/addsculpture','publicct@addsculptpage');
+    Route::post('/addsculpture','publicct@addsculp');
+    Route::get('/addcalligraphy','publicct@addcalligpage');
+    Route::post('/addcalligraphy','publicct@addcallig');
+    Route::get('/calligraphies','publicct@calligraphies');
+    Route::post('calligraphyupdatepage/{calligraphy}','publicct@calligraphyupdatepage');
+    Route::post('calligraphyupdate/{calligraphy}','publicct@calligraphyupdate');
+    
+    //Route::post('exhibitionupdate/{exhibition}','publicct@exhibitionupdate');
+Route::get('/addartist','publicct@addartistpage');
+Route::post('/addartist','publicct@addartist');
 
     Route::get('/paints','publicct@paints');
     Route::get('/paintupdate/{paint}','publicct@paintupdatepage');///
     Route::post('/paintupdate/{paint}','publicct@paintupdate');//
     Route::delete('/paintdel/{paint}', 'publicct@paintdel');
-
+    
     Route::auth();
+    //
+
 
 });
