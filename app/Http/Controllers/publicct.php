@@ -169,6 +169,55 @@ return view ('paintupdatepage',['paint'=>$paint]);
         //return view('updateexhibitionpage',['ex'=>$exhibition]);
     }
 
+    public function museumdelete(Museum $museum){
+        $museum->delete();
+        return redirect('/museums');
+    }
+
+    //AddArtWork
+    public function AddArtWork(Request $request){
+        $art = new Artwork;
+        $art->name = $request->name;
+        $art->date = $request->date;        
+
+        if ($request->paintStyle) {
+            # code...
+            $paint = new Paint;
+            $paint->style = $request->paintStyle;
+            $art->paint()->save($paint);
+        }
+        else if ($request->calligStyle) {
+            # code...
+            $callig = new Calligraphy;
+            $callig->style = $request->calligStyle;
+            $art->calligraphie()->save($callig);
+        }
+        else if ($requst->substance) {
+            # code...
+            $sclup = new Sculpture;
+            $sculp->substance = $request->substance;
+            $art->sculpture()->save($sculp);
+        }
+
+        if ($request->recievedDate) {
+            # code...
+            $loan = new Loan;
+            $loan->date = $request->loanDate;
+            $art->loan()->save($loan);
+        }
+        else if ($request->storeOrexpose) {
+            # code...
+            $perm = new Permanent_collection;
+            $perm->ExposeOrStore = $request->storeOrexpose;
+            $art->permanent()->save($perm);
+        }
+
+        $art->save();
+        return redirect('addartwork');
+    }
+
+
+
 
 
 
