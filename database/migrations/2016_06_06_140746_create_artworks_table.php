@@ -12,10 +12,7 @@ class CreateArtworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('artworks', function (Blueprint $table) {
-            $table->increment('id');
-            $table->timestamps();
-        });
+        //
     }
 
     /**
@@ -25,6 +22,6 @@ class CreateArtworksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('artworks');
+        //
     }
 }

@@ -51,14 +51,35 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('calligraphyupdate/{calligraphy}','publicct@calligraphyupdate');
     
     //Route::post('exhibitionupdate/{exhibition}','publicct@exhibitionupdate');
-Route::get('/addartist','publicct@addartistpage');
-Route::post('/addartist','publicct@addartist');
-
+    Route::get('/addartist','publicct@addartistpage');
+    Route::post('/addartist','publicct@addartist');
     Route::get('/paints','publicct@paints');
     Route::get('/paintupdate/{paint}','publicct@paintupdatepage');///
     Route::post('/paintupdate/{paint}','publicct@paintupdate');//
     Route::delete('/paintdel/{paint}', 'publicct@paintdel');
     
+    //New Amir
+    Route::get('/addpermcollection','publicct@permanents');
+    Route::post('/addpermcolls','publicct@addpermcolls');
+    Route::get('/permanentcollections','publicct@permcolls');
+    Route::post('/permcollsupdatepage/{permanentcollections}','publicct@updatepermcolls');
+    
+    Route::get('/addloan','publicct@loans');
+    Route::post('/addloan','publicct@addpermcolls');
+    Route::get('/loans','publicct@allloans');
+    Route::post('/loansupdatepage/{loan}','publicct@updateloan');
+
+    Route::get('/addmuseum','publicct@addmuseum');
+    Route::post('/addmuseum','publicct@addnewmuseum');
+    Route::get('/museums','publicct@museums');
+    Route::post('/museumupdatepage/{museum}','publicct@updatemuseum');
+    Route::post('museumupdate/{museum}','publicct@museumupdate');
+    
+    Route::get('/addartwork','publicct@addartwork');
+    Route::post('/addartwork','publicct@addnewartwork');
+    Route::get('/artworks','publicct@artworks');
+    Route::post('/artworkupdatepage/{Artwok}','publicct@updateartworks');
+
     Route::auth();
     //
 

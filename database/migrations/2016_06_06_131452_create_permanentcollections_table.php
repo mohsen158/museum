@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArtworksTable extends Migration
+class CreatePermanentcollectionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class CreateArtworksTable extends Migration
      */
     public function up()
     {
-        Schema::create('artworks', function (Blueprint $table) {
-            $table->increment('id');
-            $table->timestamps();
-        });
+        Schema::create('permanentcollections',function(Blueprint $table){
+            $table->increments('id');
+            $table->string('ExposeOrStore');
+        });        
     }
 
     /**
@@ -25,6 +25,6 @@ class CreateArtworksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('artworks');
+        //
     }
 }

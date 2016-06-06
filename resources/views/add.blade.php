@@ -16,7 +16,8 @@
 
                     <p>
                         <label>{{$input}}</label>
-                        <input class="w3-input w3-hover-blue w3-animate-input " name={{$input}} style="width:30%"type="text"></p>
+                        <input class="w3-input w3-hover-blue w3-animate-input " name={{$input}} style="width:30%"type="text">
+                    </p>
 
                   
                     @endforeach

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Paint;
+use App\Museum;
+use App\Loan;
+use App\Permanent_collection;
 use App\Sculpture;
 use App\Calligraphy;
 use Illuminate\Http\Request;
@@ -63,7 +66,6 @@ class publicct extends Controller
         return redirect('/calligraphies');
         //return view('updateexhibitionpage',['ex'=>$exhibition]);
     }
-
 
     public function addexhibition(Request $request)
     {
@@ -133,5 +135,41 @@ return view ('paintupdatepage',['paint'=>$paint]);
         $arti->save();
         return redirect('addartist');
     }
+
+    //New Amir
+
+    //permanent collection functions
+
+    public function addmuseum(Request $req){
+        return view('add',['title'=>'Add Museum','action'=>'/addmuseum','inputarr'=>['name','reception']]);
+    }
+
+    public function addnewmuseum(Request $request){
+        $var = new Museum;
+        $var->name = $request->name;
+        $var->reception = $request->reception;
+        $var->save();
+        return redirect('addmuseum');
+    }
+
+    public function museums(Request $request){
+        $museums = Museum::all();
+        return view('museums',['ex'=>$museums]);
+    }
+
+    public  function updatemuseum(Museum $museum){
+        return view('updatemuseumpage',['ex' => $museum]);
+    }
+    public  function museumupdate(Request $request,Museum $museum)
+    {
+        $museum->name=$request->name;
+        $museum->reception = $request->reception;
+        $museum->save();
+        return redirect('/museums');
+        //return view('updateexhibitionpage',['ex'=>$exhibition]);
+    }
+
+
+
 
 }
