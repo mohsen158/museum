@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Paint;
+use App\Artwork;
 use App\Museum;
 use App\Loan;
 use App\Permanent_collection;
@@ -178,47 +179,95 @@ return view ('paintupdatepage',['paint'=>$paint]);
     public function AddArtWork(Request $request){
         $art = new Artwork;
         $art->name = $request->name;
-        $art->date = $request->date;        
+        $art->date = $request->cdate;     
+        $art->save();   
 
-        if ($request->paintStyle) {
+
+        if ($request->paintStyle != '') {
             # code...
-            $paint = new Paint;
-            $paint->style = $request->paintStyle;
-            $art->paint()->save($paint);
+            $paintt = new Paint;
+            $paintt->style = $request->paintStyle;
+            $paintt->save();
+            $paintt->artworks()->save($art);
+            //$art->paint()->save($paintt);
+           
         }
-        else if ($request->calligStyle) {
+        else if ($request->calligStyle != '') {
             # code...
             $callig = new Calligraphy;
             $callig->style = $request->calligStyle;
-            $art->calligraphie()->save($callig);
+            $callig->save();
+            $collig->artworks()->save($art);
         }
-        else if ($requst->substance) {
+        else if ($request->substance != '') {
             # code...
             $sclup = new Sculpture;
             $sculp->substance = $request->substance;
-            $art->sculpture()->save($sculp);
+            $sculp->save();
+            $sculp->artworks()->save($art);
         }
 
-        if ($request->recievedDate) {
+        if ($request->recievedDate != '') {
             # code...
             $loan = new Loan;
-            $loan->date = $request->loanDate;
-            $art->loan()->save($loan);
+            $loan->date = $request->recievedDate;
+            $loan->save();
+            $loan->artworks()->save($art);
+            //$art->loan()->save($loan);
         }
-        else if ($request->storeOrexpose) {
+
+        else if ($request->Collection != '') {
             # code...
             $perm = new Permanent_collection;
-            $perm->ExposeOrStore = $request->storeOrexpose;
-            $art->permanent()->save($perm);
-        }
+            if ($request->Collection == 'store') {
+            
 
-        $art->save();
-        return redirect('addartwork');
+                $perm->ExposeOrStore = 'store';
+            }
+            else if ($request->Collection == 'exposed') {
+                # code...
+                $perm->ExposeOrStore = 'exposed';
+            }
+            $perm->save();
+            $perm->artworks()->save($art);
+             
+
+            //$art->permanent()->save($perm);
+        }
+        return redirect('/addArtwork');
     }
 
+    public function addArtworkview(){
+        return view('/addArtwork');
+    }
 
+    //Queries
+    public function getartworkwithExname(Request $exname){
+        $ex=Exhibition::where('name', '=', $exname->name)->firstOrFail();
+        $arts=$ex->artworks();
+        return view('quaries',[$tasks => $arts,$subject => 'Art of the Exhibition']);
+    } 
+    public function getartworkwithArtistname(Request $artistname){
+        $artist=Artist::where('name', '=', $artistname->name)->
+        firstOrFail();
+        $arts=$artist->artworks();
+        return view('quaries',[$tasks => $arts, $subject => 'Art of the Artist']);
+        
+    }
+    public function getartworkwithPaintstyle(Request $paintstyle){
+        $paintstyle=Paint::where('style', '=', $paintstyle->name)->firstOrFail();
+        $arts=$paintstyle->artworks();
+        return view('quaries',[$tasks => $arts, $subject => 'Arts with the Style']);
+    }
+    public function getartworkwithCalligstyle(Request $callistyle){
+        $callistyle=Calligraphy::where('style', '=', $callistyle->name)->firstOrFail();
+        $arts=$callistyle->artworks();
+        return view('quaries',[$tasks => $arts, $subject => 'Arts with the Style']);
+    }
 
-
-
-
+    public function getartworkwithsclupturestyle(Request $sclupstyle){
+        $sclupstyle=Sculpture::where('substance', '=', $sclupstyle->name)->firstOrFail();
+        $arts=$sclupstyle->artworks();
+        return view('quaries',[$tasks => $arts]);
+    }
 }

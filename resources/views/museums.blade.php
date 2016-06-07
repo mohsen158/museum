@@ -23,7 +23,7 @@
                                 <tr>
                                     <td class="table-text"><div>{{ $task->name }}</div></td>
                                     <td class="table-text"><div>{{ $task->reception }}</div></td>
-                                    <!-- Task Delete Button -->
+                                    <!-- Task Delete Button --> 
                                     <td>
                                         <form action="/museumdelete/{{ $task->id }}" method="POST">
                                             {{ csrf_field() }}

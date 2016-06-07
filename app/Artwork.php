@@ -11,6 +11,7 @@ class Artwork extends Model
     {
         return $this->belongsTo('App\Paint');
     }
+
     public function sclupture()
     {
         return $this->belongsTo('App\Sclupture');
@@ -18,27 +19,25 @@ class Artwork extends Model
      
     public function calligraphie()
     {
-        return $this->belongsTo('App\Calligraphie');
+        return $this->belongsTo('App\Calligraphy');
     }
 
-    public function loan(){
+    public function loan()
+    {
         return $this->belongsTo('App\Loan');
     }
 
-    public function permanent(){
+    public function permanent()
+    {
         return $this->belongsTo('App\permanent_collection');
     }
 
-     public function artist()
+    public function artist()
     {
         return $this->belongsTo('App\Artist');
     }
-  public function exhibition()
+    public function exhibition()
     {
         return $this->belongsTo('App\Exhibition');
     }
-
-
-
-
 }

@@ -78,11 +78,18 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/museums','publicct@museums');
     Route::post('/museumupdatepage/{museum}','publicct@updatemuseum');
     Route::post('museumupdate/{museum}','publicct@museumupdate');
-    Route::post('museumdelete/{museum}','publicct@museumdelete');//mehode not allowed i dont know why
+    Route::post('museumdelete/{museum}','publicct@museumdelete');//methode not allowed i dont know why
 
-    //Route::post('addArtwork','publicct@addArtwork');
-    Route::post('addArtwork','publicct@addArtwork');
+    Route::get('addArtwork','publicct@addArtworkview');
+    Route::post('/addArtwork','publicct@addArtwork');
 
+
+    //Queries Routes
+    Route::post('/exhibnamequer','publicct@getartworkwithExname');
+    Route::post('/artistnamequer','publicct@getartworkwithArtistname');
+    Route::post('/paintstylequer','publicct@getartworkwithPaintstyle');
+    Route::post('/calligstylequer','publicct@getartworkwithCalligstyle');
+    Route::post('/sculptsubstquer','publicct@getartworkwithsclupturestyle');
     Route::auth();
     //
 
