@@ -28,6 +28,7 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     })->middleware('guest');
 
+
     Route::get('/tasks', 'TaskController@index');
     Route::post('/task', 'TaskController@store');
     Route::delete('/task/{task}', 'TaskController@destroy');
@@ -79,6 +80,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/addartwork','publicct@addnewartwork');
     Route::get('/artworks','publicct@artworks');
     Route::post('/artworkupdatepage/{Artwok}','publicct@updateartworks');
+
+
 
     Route::auth();
     //
