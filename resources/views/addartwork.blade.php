@@ -63,6 +63,7 @@
     <script type="text/javascript">
       $(document).ready(function(){
     $(".inputhide").hide();
+    $("#edateid").hide();
 });
       
       
@@ -88,7 +89,7 @@ $('input:radio[name="type"]').change(function() {
 });
 
 
-$('input:radio[name="condition"]').change(function() {
+$('input:radio[name="Condition"]').change(function() {
   if ($(this).val() == 'store') {
     
   

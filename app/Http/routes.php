@@ -28,6 +28,11 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     })->middleware('guest');
 
+    Route::get('/test', function () {
+        return view('addartwork');
+    });
+
+
 
     Route::get('/tasks', 'TaskController@index');
     Route::post('/task', 'TaskController@store');
@@ -82,7 +87,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('museumdelete/{museum}','publicct@museumdelete');//mehode not allowed i dont know why
 
     //Route::post('addArtwork','publicct@addArtwork');
-    Route::post('addArtwork','publicct@addArtwork');
+    Route::post('/addArtwork','publicct@addArtwork');
 
 
 
