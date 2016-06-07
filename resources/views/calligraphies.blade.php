@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<button  type="button" class="btn btn-info btn-circle btn-xl" onclick="location.href='/addcalligraphy';"><a href="/addArtwork"><i class="fa fa-plus" aria-hidden="true"></i>
+</button>
+
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
 

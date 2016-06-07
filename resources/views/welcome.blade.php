@@ -1,18 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+<button  type="button" class="btn btn-info btn-circle btn-xl" onclick="location.href='/addArtwork';"><a href="/addArtwork"><i class="fa fa-plus" aria-hidden="true"></i>
+</button>
+
+
 <div class="container">
     <div class="row">
     <div class="col-md-3 ">
             <ul class="nav nav-pills nav-stacked">
  
   <li><a href="/addArtwork"><span class="glyphicon glyphicon-chevron-right"></span> Add Artwork</a></li>
-  <li><a href="/addartist"><span class="glyphicon glyphicon-chevron-right"></span> Add Arist</a></li>
-  <li><a href="/addexhibition"><span class="glyphicon glyphicon-chevron-right"></span> Add Exhibition</a></li> 
-  <li><a href="/addmuseum"><span class="glyphicon glyphicon-chevron-right"></span> Add Museum</a></li>
-  <li><a href="addpaint"><span class="glyphicon glyphicon-chevron-right"></span> Add paint</a></li>
-   <li><a href="addcalligraphy"><span class="glyphicon glyphicon-chevron-right"></span> Add Calligraphy</a></li>
-    <li><a href="addsculpture"><span class="glyphicon glyphicon-chevron-right"></span> Add Sculpture</a></li>
+  <li><a href="/artists"><span class="glyphicon glyphicon-chevron-right"></span> Add Arist</a></li>
+  <li><a href="/exhibitions"><span class="glyphicon glyphicon-chevron-right"></span> Add Exhibition</a></li> 
+  <li><a href="/museums"><span class="glyphicon glyphicon-chevron-right"></span> Add Museum</a></li>
+  <li><a href="paints"><span class="glyphicon glyphicon-chevron-right"></span> Add paint</a></li>
+   <li><a href="calligraphies"><span class="glyphicon glyphicon-chevron-right"></span> Add Calligraphy</a></li>
+    <li><a href="/sculptures"><span class="glyphicon glyphicon-chevron-right"></span> Add Sculpture</a></li>
 </ul>
 </div>
         <div class="col-md-3 ">

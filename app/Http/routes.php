@@ -43,6 +43,7 @@ Route::group(['middleware' => ['web']], function () {
 
     //Amir
     Route::get('/addsculpture','publicct@addsculptpage');
+    Route::get('/sculptures','publicct@sculptpage');
     Route::post('/addsculpture','publicct@addsculp');
     Route::get('/addcalligraphy','publicct@addcalligpage');
     Route::post('/addcalligraphy','publicct@addcallig');
@@ -52,6 +53,7 @@ Route::group(['middleware' => ['web']], function () {
     
     //Route::post('exhibitionupdate/{exhibition}','publicct@exhibitionupdate');
     Route::get('/addartist','publicct@addartistpage');
+    Route::get('/artists','publicct@artistspage');
     Route::post('/addartist','publicct@addartist');
     Route::get('/paints','publicct@paints');
     Route::get('/paintupdate/{paint}','publicct@paintupdatepage');///

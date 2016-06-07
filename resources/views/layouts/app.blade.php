@@ -19,6 +19,15 @@
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
+    .btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+  position: fixed; bottom: 0px; right: 50%;
+}
         body {
             font-family: 'Lato';
         }

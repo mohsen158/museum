@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-<button  type="button" class="btn btn-info btn-circle btn-xl" onclick="location.href='/addmuseum';"><a href="/addmuseum"><i class="fa fa-plus" aria-hidden="true"></i>
+<button  type="button" class="btn btn-info btn-circle btn-xl" onclick="location.href='/addsculpture';"><a href="/addArtwork"><i class="fa fa-plus" aria-hidden="true"></i>
 </button>
 
 
@@ -12,26 +10,29 @@
 
 
             <!-- Current Tasks -->
-            @if (count($ex) > 0)
+            @if (count($paints) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Museums
+                        Sculpture
                     </div>
 
                     <div class="panel-body">
                         <table class="table table-striped task-table">
                             <thead>
-                            <th>Name </th>
-                            <th>Reception</th>
+                            <th>Style </th>
+
+
+
+
                             </thead>
                             <tbody>
-                            @foreach ($ex as $task)
+                            @foreach ($paints as $task)
                                 <tr>
-                                    <td class="table-text"><div>{{ $task->name }}</div></td>
-                                    <td class="table-text"><div>{{ $task->reception }}</div></td>
-                                    <!-- Task Delete Button --> 
+                                    <td class="table-text"><div>{{ $task->substance }}</div></td>
+
+                                    <!-- Task Delete Button -->
                                     <td>
-                                        <form action="/museumdelete/{{ $task->id }}" method="POST">
+                                        <form action="/paintdel/{{ $task->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
 
@@ -41,11 +42,12 @@
                                         </form>
                                     </td>
                                     <td>
-                                        <form action="/museumupdatepage/{{ $task->id }}" method="POST">
+                                        <form action="/paintupdate/{{ $task->id }}" method="GET">
                                             {{ csrf_field() }}
-                                            
-                                            <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
-                                                <i class="fa fa-btn fa-trash"></i>Update
+
+
+                                            <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-info">
+                                                <i class="fa fa-cog"></i>  Update
                                             </button>
                                         </form>
                                     </td>

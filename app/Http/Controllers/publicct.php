@@ -108,7 +108,18 @@ class publicct extends Controller
         $p = Paint::all();
         return view ('paints',['paints'=>$p]);
     }
-
+     public function artistspage()
+    {
+        
+        $p = Artist::all();
+        return view ('artists',['paints'=>$p]);
+    }
+ public function sculptpage()
+    {
+       $p = Sculpture::all();
+        return view ('scluptures',['paints'=>$p]);
+       
+    }
     public  function paintupdatepage(Paint $paint)
     {
 return view ('paintupdatepage',['paint'=>$paint]);
