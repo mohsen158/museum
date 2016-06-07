@@ -244,30 +244,30 @@ return view ('paintupdatepage',['paint'=>$paint]);
     //Queries
     public function getartworkwithExname(Request $exname){
         $ex=Exhibition::where('name', '=', $exname->name)->firstOrFail();
-        $arts=$ex->artworks();
-        return view('quaries',[$tasks => $arts,$subject => 'Art of the Exhibition']);
+        $arts=$ex->artworks()->get();
+        return view('quaries',['tasks' => $arts,'subject' => 'Art of the Exhibition']);
     } 
     public function getartworkwithArtistname(Request $artistname){
         $artist=Artist::where('name', '=', $artistname->name)->
         firstOrFail();
-        $arts=$artist->artworks();
-        return view('quaries',[$tasks => $arts, $subject => 'Art of the Artist']);
+        $arts=$artist->artworks()->get();
+        return view('quaries',['tasks' => $arts, 'subject' => 'Art of the Artist']);
         
     }
     public function getartworkwithPaintstyle(Request $paintstyle){
         $paintstyle=Paint::where('style', '=', $paintstyle->name)->firstOrFail();
-        $arts=$paintstyle->artworks();
-        return view('quaries',[$tasks => $arts, $subject => 'Arts with the Style']);
+        $arts=$paintstyle->artworks()->get();
+        return view('quaries',['tasks' => $arts, 'subject' => 'Arts with the Style']);
     }
     public function getartworkwithCalligstyle(Request $callistyle){
         $callistyle=Calligraphy::where('style', '=', $callistyle->name)->firstOrFail();
-        $arts=$callistyle->artworks();
-        return view('quaries',[$tasks => $arts, $subject => 'Arts with the Style']);
+        $arts=$callistyle->artworks()->get();
+        return view('quaries',['tasks' => $arts, 'subject' => 'Arts with the Style']);
     }
 
     public function getartworkwithsclupturestyle(Request $sclupstyle){
         $sclupstyle=Sculpture::where('substance', '=', $sclupstyle->name)->firstOrFail();
         $arts=$sclupstyle->artworks();
-        return view('quaries',[$tasks => $arts]);
+        return view('quaries',['$tasks' => $arts]);
     }
 }
